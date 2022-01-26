@@ -1,0 +1,103 @@
+"0","data_generator <- function(n, positions, variance_values){"
+"0","  library(gfpop)"
+"0","  data = dataGenerator(n, positions, variance_values, type = 'variance')"
+"0","  return(data)"
+"0","}"
+"0",""
+"0",""
+"0",""
+"0","css_stat <- function(y){"
+"0","  stat = c()"
+"0","  n = length(y)"
+"0","  for(t in 1:n){"
+"0","    a = sum(y[1:t]**2)/sum(y**2)"
+"0","    b = t/n"
+"0","    stat <- c(stat, sqrt(n/2)*abs(a-b))"
+"0","  }"
+"0","  return(stat)"
+"0","}"
+"0",""
+"0","binSeg <- function(s,e,y,pen=1.358){"
+"0","    if (e-s==1) {"
+"0","        return(c())"
+"0","    } else {"
+"0","        css_stats <- css_stat(y[s:e])"
+"0","        cp <- which.max(css_stats) + s"
+"0","        message(""cp: "",cp)"
+"0","        message(""pen: "",pen)"
+"0","        message(""max(css_stats): "",max(css_stats))"
+"0","        if (max(css_stats)> pen) {"
+"0","            return(c(binSeg(s,cp,y,pen),cp,binSeg(cp+1,e,y,pen)))"
+"0","        } else {"
+"0","            return(c())"
+"0","        }"
+"0","    }"
+"0","    "
+"0","}"
+"0","positions = c(0.1,0.4, 0.8, 1)"
+"0","variances = c(4, 1, 5, 2)"
+"0","n = 10000"
+"0","y = data_generator(n, positions, variances)"
+"0","pen <- 1.358 #95%"
+"0","library(sys)"
+"0","start_time <- Sys.time()"
+"0","binSeg(1, n, y, pen)"
+"2","cp: 4004
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 11.6221620400605
+"
+"2","cp: 1001
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 14.275356195387
+"
+"2","cp: 487
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 0.937296488121001
+"
+"2","cp: 3068
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 1.01210740842886
+"
+"2","cp: 7969
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 8.565526834133
+"
+"2","cp: 7872
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 0.557735566276917
+"
+"2","cp: 8844
+"
+"2","pen: 1.358
+"
+"2","max(css_stats): 0.880682536970611
+"
+"1","[1]"
+"1"," 1001"
+"1"," 4004"
+"1"," 7969"
+"1","
+"
+"0","print(Sys.time()-start_time)"
+"1","Time difference of "
+"1",""
+"1","33.87232"
+"1",""
+"1"," "
+"1",""
+"1","secs"
+"1",""
+"1","
+"

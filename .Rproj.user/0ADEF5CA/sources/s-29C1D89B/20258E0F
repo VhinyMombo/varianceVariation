@@ -1,0 +1,26 @@
+{
+    "id": "20258E0F",
+    "path": "~/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+    "project_path": "src/Algo_Rcpp.cpp",
+    "type": "cpp",
+    "hash": "2564530326",
+    "contents": "",
+    "dirty": false,
+    "created": 1643051212425.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "36,0",
+        "scrollLine": "32"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1643227470,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1643227470703,
+    "read_only": false,
+    "read_only_alternatives": []
+}

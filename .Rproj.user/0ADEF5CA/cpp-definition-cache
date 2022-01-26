@@ -1,0 +1,62 @@
+[
+    {
+        "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+        "file_last_write": 1643227470.0,
+        "definitions": [
+            {
+                "usr": "c:@ST>1#T@square",
+                "kind": 2,
+                "parent_name": "",
+                "name": "square<T>",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 7,
+                "column": 8
+            },
+            {
+                "usr": "c:@ST>1#T@square@F@operator()#&1t0.0#S0_#1",
+                "kind": 7,
+                "parent_name": "square<T>",
+                "name": "operator(const T &, const T &)",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 9,
+                "column": 5
+            },
+            {
+                "usr": "c:@F@subset_range#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#I#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "subset_range(Rcpp::NumericVector, int, int)",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 16,
+                "column": 15
+            },
+            {
+                "usr": "c:@F@which_max_cpp#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "which_max_cpp(Rcpp::NumericVector)",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 24,
+                "column": 5
+            },
+            {
+                "usr": "c:@F@css_statistic#&$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "css_statistic(Rcpp::NumericVector &)",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 39,
+                "column": 15
+            },
+            {
+                "usr": "c:@F@BS#I#I#&$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#f#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "BS(int, int, Rcpp::NumericVector &, float)",
+                "file": "/Users/mohamedennatiqi/Desktop/R/changepoint/variance/src/Algo_Rcpp.cpp",
+                "line": 58,
+                "column": 12
+            }
+        ]
+    }
+]

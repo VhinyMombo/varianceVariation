@@ -1,0 +1,7 @@
+"0","#comparer avec les packages"
+"0","#install.packages(""cpt"")"
+"0","#library(cpt)"
+"0","our_BS = binSeg(1, n, y, pen)"
+"2","Error in if (max(css_stats) > pen) { : 
+  missing value where TRUE/FALSE needed
+"
