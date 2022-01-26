@@ -220,7 +220,7 @@ std::vector<int> PELT_cpp(std::vector<float> &data, int params = 1, int K = 0){
     v  = cp[n-1];
     P.push_back(cp[n-1]);
 
-    while (v > 1)
+    while (v > 0)
     {
         P.push_back(cp[v]);
         v = cp[v];
