@@ -21,9 +21,9 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// BS
-Rcpp::List BS(int s, int e, NumericVector& y, float penality);
-RcppExport SEXP _variance_BS(SEXP sSEXP, SEXP eSEXP, SEXP ySEXP, SEXP penalitySEXP) {
+// BS_rcpp
+Rcpp::List BS_rcpp(int s, int e, NumericVector& y, float penality);
+RcppExport SEXP _variance_BS_rcpp(SEXP sSEXP, SEXP eSEXP, SEXP ySEXP, SEXP penalitySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -31,7 +31,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type e(eSEXP);
     Rcpp::traits::input_parameter< NumericVector& >::type y(ySEXP);
     Rcpp::traits::input_parameter< float >::type penality(penalitySEXP);
-    rcpp_result_gen = Rcpp::wrap(BS(s, e, y, penality));
+    rcpp_result_gen = Rcpp::wrap(BS_rcpp(s, e, y, penality));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -122,7 +122,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_variance_css_statistic", (DL_FUNC) &_variance_css_statistic, 1},
-    {"_variance_BS", (DL_FUNC) &_variance_BS, 4},
+    {"_variance_BS_rcpp", (DL_FUNC) &_variance_BS_rcpp, 4},
     {"_variance_penalty_fun", (DL_FUNC) &_variance_penalty_fun, 2},
     {"_variance_variance", (DL_FUNC) &_variance_variance, 2},
     {"_variance_cost_function", (DL_FUNC) &_variance_cost_function, 1},
