@@ -184,3 +184,87 @@ PELT <- function(data,params=1,K=0){
   
   return(unique(P))
 }
+
+
+cpt_naive<- function(x,w,l) {
+  
+  library(gfpop)
+  library(zoo)
+  
+  ftest_fstat<- function (x) {
+    y=split(x,cut(seq_along(x),2, labels = FALSE))
+    x1=y$'1'
+    x2=y$'2'
+    f=var.test(x=x2,y=x1)
+    
+    pval=f$p.value
+    ftest=f$statistic
+    re=data.frame(ftest,pval)
+    
+    return(re)
+    
+  } 
+  
+  window_ftest<-rollapply(x, width = w, FUN =ftest_fstat)
+  ftests<- as.vector(window_ftest[,1])
+  pvalues<- as.vector(window_ftest[,2])
+  fstat <- ftests[ftests>l]
+  biggest_values=sort(fstat,decreasing=TRUE)[1:w]
+  
+  
+  new_vec=vector(mode='numeric')
+  
+  for (i in 1:w) {
+    
+    indexz=c(which(fstat==biggest_values[i]))
+    new_vec=c(new_vec,indexz)
+  }
+  new_vec
+  
+  new_vecx=sort(new_vec,decreasing = F)
+  
+  deletx<- function(x,w) {
+    
+    n=length(x)-1
+    
+    new_vecu=vector(mode='numeric')
+    
+    for (o in 1:n) {
+      
+      if(abs((x[o])-(x[o+1])) > (w*2)) {
+        
+        
+        a=c(x[o],x[o+1])
+        
+        
+        
+        
+        new_vecu=c(new_vecu,a)
+        
+      }
+      
+      
+    }
+    return(new_vecu)
+  }
+  
+  t=deletx(new_vecx,w)
+  
+  taux=c(t,max(new_vec))
+  tau=sort(taux,decreasing = F)
+  
+  get_vec <- function(x, gap) {
+    grp <- cumsum(c(TRUE, diff(x) > gap))
+    i1 <- x[!!!ave(x, grp, FUN = function(i) length(i) > 1)]
+    i2 <- unname(tapply(x, grp, function(i) mean(i[length(i) > 1])))
+    
+    return(c(i1, i2[!is.na(i2)]))
+    
+    
+  }
+  
+  ptch=as.integer(get_vec(tau,(w*2)))
+  
+  return(ptch)
+  
+}
